@@ -1,9 +1,9 @@
 var arrKMod = (function (){
-    function foreach(a, callback, thisK){
+    function foreach(a, callback){
         var i;
         var length = a.length;
         for (i = 0; i < length; i++) {
-        callback.call(thisK, a[i], i, a);
+        callback( a[i], i, a);
         }
     }
    

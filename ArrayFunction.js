@@ -1,4 +1,4 @@
-var arrKMod = (function (){
+var arrayFuncModule = (function (){
     function foreach(a, callback, thisaForCallback){
         var i;
         var length = a.length;

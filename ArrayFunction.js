@@ -10,11 +10,12 @@ var arrayFuncModule = (function (){
         var i;
         var mapedArr = new Array();
         for (i = 0; i < a.length; i++) {
-            mapedArr.shift(callback.call(thisaForCallback, a[i], i, a));
+            mapedArr.push(callback.call(thisaForCallback, a[i], i, a));
         }
         return mapedArr;
 
     }  
-    return { foreach: foreach
+    return { foreach: foreach,
+        map:map
     }
 } ())

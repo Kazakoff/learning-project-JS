@@ -8,3 +8,4 @@ var arrMap = arrayFuncModule.map(arr,function(arrI, i){return arrI*i});
 arrayFuncModule.foreach(arrMap,function(a){ console.log(a)});
 
 
+

@@ -1,0 +1,25 @@
+{
+  "name": "learning-project-js",
+  "version": "1.0.0",
+  "description": "Learning",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kazakoff/learning-project-JS.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Vadim Kazakoff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kazakoff/learning-project-JS/issues"
+  },
+  "homepage": "https://github.com/Kazakoff/learning-project-JS#readme"
+}

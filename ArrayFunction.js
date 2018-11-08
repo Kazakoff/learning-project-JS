@@ -1,5 +1,4 @@
-var arrayFuncModule = (function (){
-    function foreach(a, callback, thisaForCallback){
+module.exports.foreach = function foreach(a, callback, thisaForCallback){
         var i;
         var length = a.length;
         for (i = 0; i < length; i++) {
@@ -7,7 +6,7 @@ var arrayFuncModule = (function (){
         }
     }
 
-    function map(a, callback, thisaForCallback){
+module.exports.map = function map(a, callback, thisaForCallback){
         var i;
         var mapedArr = new Array();
         for (i = 0; i < a.length; i++) {
@@ -16,7 +15,7 @@ var arrayFuncModule = (function (){
         return mapedArr;
     }  
 
-    function take(a, count){
+module.exports.take = function take(a, count){
         var mapedArr = new Array();
         var takeCount = count>a.length ? a.length : count
         for (var i = 0; i < takeCount; i++) {
@@ -25,7 +24,7 @@ var arrayFuncModule = (function (){
         return mapedArr;
     }  
 
-    function skip(a, count){
+module.exports.skip = function skip(a, count){
         var mapedArr = new Array();
         for (var i = count; i < a.length; i++) {
             mapedArr.push(a[i]);
@@ -33,7 +32,7 @@ var arrayFuncModule = (function (){
         return mapedArr;
     }   
     
-    function reduce(a, callback, initialValue ){
+module.exports.reduce = function reduce(a, callback, initialValue ){
         var accumulate = initialValue ? initialValue : 0;
         for (var i = 0; i < count; i++) {
             callback(accumulate, a[i], i, a);
@@ -41,7 +40,7 @@ var arrayFuncModule = (function (){
         return accumulate;
     } 
     
-    function filter(a, callback, thisaForCallback){
+module.exports.filtetr = function filter(a, callback, thisaForCallback){
         var i;
         var filteredArr = new Array();
         for (i = 0; i < a.length; i++) {
@@ -49,13 +48,3 @@ var arrayFuncModule = (function (){
         }
         return mapedArr;
     }  
-
-    return { 
-             foreach: foreach,
-             map:map,
-             take:take,
-             skip:skip,
-             filter:filter,
-             reduce:reduce
-    }
-} ())

@@ -31,7 +31,7 @@ var arrayFuncModule = (function (){
         }
         return accumulate;
     } 
-
+    
     function filter(a, callback, thisaForCallback){
         var i;
         var filteredArr = new Array();

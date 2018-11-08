@@ -7,5 +7,10 @@ console.log('map');
 var arrMap = arrayFuncModule.map(arr,function(arrI, i){return arrI*i});
 arrayFuncModule.foreach(arrMap,function(a){ console.log(a)});
 
+console.log('take');
+arrMap = arrayFuncModule.take(arr,3);
+arrayFuncModule.foreach(arrMap,function(a){ console.log(a)});
 
-
+console.log('skip');
+arrMap = arrayFuncModule.skip(arr,3);
+arrayFuncModule.foreach(arrMap,function(a){ console.log(a)});

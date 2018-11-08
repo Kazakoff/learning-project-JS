@@ -18,7 +18,16 @@ var arrayFuncModule = (function (){
 
     function take(a, count){
         var mapedArr = new Array();
-        for (var i = 0; i < count; i++) {
+        var takeCount = count>a.length ? a.length : count
+        for (var i = 0; i < takeCount; i++) {
+            mapedArr.push(a[i]);
+        }
+        return mapedArr;
+    }  
+
+    function skip(a, count){
+        var mapedArr = new Array();
+        for (var i = count; i < a.length; i++) {
             mapedArr.push(a[i]);
         }
         return mapedArr;
@@ -41,8 +50,12 @@ var arrayFuncModule = (function (){
         return mapedArr;
     }  
 
-    return { foreach: foreach,
+    return { 
+             foreach: foreach,
              map:map,
-             take:take
+             take:take,
+             skip:skip,
+             filter:filter,
+             reduce:reduce
     }
 } ())

@@ -1,5 +1,5 @@
-const {describe, it} = require('mocha')
-const calculator = require('../ArrayFunction')
+const assert = require("assert")
+const arrayFuncModule = require('../ArrayFunction')
 
  describe('forEach', function () {
   const arr = [1,2,3];

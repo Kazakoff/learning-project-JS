@@ -1,4 +1,4 @@
-module.exports.foreach = function foreach(a, callback, thisaForCallback){
+module.exports.forEach = function foreach(a, callback, thisaForCallback){
         var i;
         var length = a.length;
         for (i = 0; i < length; i++) {
@@ -34,17 +34,18 @@ module.exports.skip = function skip(a, count){
     
 module.exports.reduce = function reduce(a, callback, initialValue ){
         var accumulate = initialValue ? initialValue : 0;
-        for (var i = 0; i < count; i++) {
-            callback(accumulate, a[i], i, a);
+        var length = a.length;
+        for (i = 0; i < length; i++) {
+            accumulate = callback(accumulate, a[i], i, a);
         }
         return accumulate;
     } 
     
-module.exports.filtetr = function filter(a, callback, thisaForCallback){
+module.exports.filter = function filter(a, callback, thisaForCallback){
         var i;
         var filteredArr = new Array();
         for (i = 0; i < a.length; i++) {
            if(callback.call(thisaForCallback, a[i], i, a)) filteredArr.push(a[i]);
         }
-        return mapedArr;
+        return filteredArr;
     }  

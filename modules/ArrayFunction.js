@@ -1,4 +1,4 @@
-module.exports.forEach = function foreach(a, callback, thisaForCallback){
+module.exports.forEach = function forEach(a, callback, thisaForCallback){
         var i;
         var length = a.length;
         for (i = 0; i < length; i++) {

@@ -1,5 +1,5 @@
 const assert = require("assert")
-const arrayFunctions = require('../ArrayFunction')
+const arrayFunctions = require('../modules/ArrayFunction')
 
  describe('forEach', function () {
   const arr = [1,2,3];

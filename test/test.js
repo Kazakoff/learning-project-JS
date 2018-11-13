@@ -4,11 +4,23 @@ const arrayFunctions = require('../modules/ArrayFunction')
  describe('forEach', function () {
   const arr = [1,2,3];
   var resultArray = arr.slice(0);
-  arrayFunctions.forEach(resultArray,function(arrItm, i, array){array[i] += i})
+  arrayFunctions.forEach(resultArray,function(arrItm, i, arr){arr[i] += i})
 it('standart', () => {
   assert.deepEqual(resultArray, [1,3,5]);
 } );
 
+var resultArray2 = arr.slice(0);
+arrayFunctions.forEach(resultArray2,function(arrItm, i, arr){arr[i] += this.length})
+it('without this', () => {
+  assert.deepEqual(resultArray2, [1,3,5]);
+} );
+
+var resultArray3 = [1,2,3];
+var contextArray = [1,2,3];
+arrayFunctions.forEach(resultArray3,function(arrItm, i, arr){ arr[i] += this.length}, contextArray)
+it('with this', () => {
+  assert.deepEqual(resultArray3, [4,5,6]);
+} );
 
 
 } );

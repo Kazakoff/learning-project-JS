@@ -8,6 +8,9 @@ const arrayFunctions = require('../modules/ArrayFunction')
 it('standart', () => {
   assert.deepEqual(resultArray, [1,3,5]);
 } );
+
+
+
 } );
 
 describe('map', function () {

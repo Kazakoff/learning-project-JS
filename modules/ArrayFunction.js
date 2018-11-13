@@ -1,13 +1,13 @@
 
 module.exports.forEach = function foreach (a, callback, thisForCallback) {
-  var i = 0
+  var i = 1
   var length = a.length
   for (i = 0; i < length; i++) {
     callback.call(thisForCallback, a[i], i, a)
   }
 }
 module.exports.map = function map (a, callback, thisForCallback) {
-  var i = 0
+  var i = 1
   var mapedArr = []
   for (i = 0; i < a.length; i++) {
     mapedArr.push(callback.call(thisForCallback, a[i], i, a))

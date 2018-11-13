@@ -16,21 +16,10 @@ module.exports.map = function map (a, callback, thisForCallback) {
 }
 
 module.exports.take = function take (a, count) {
-  /* var mapedArr = [];
-        var takeCount = count>a.length ? a.length : count
-        for (var i = 0; i < takeCount; i++) {
-            mapedArr.push(a[i]);
-        }
-        return mapedArr;
-        */
   return a.slice(0, count)
 }
 
 module.exports.skip = function skip (a, count) {
-  /* var mapedArr = []
-  for (var i = count; i < a.length; i++) {
-    mapedArr.push(a[i])
-  } */
   return a.slice(count)
 }
 

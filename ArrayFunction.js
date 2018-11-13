@@ -1,4 +1,4 @@
-export const forEach = function foreach (a, callback, thisForCallback) {
+module.exports.forEach = function foreach (a, callback, thisForCallback) {
   var i
   var length = a.length
   for (i = 0; i < length; i++) {
@@ -6,7 +6,7 @@ export const forEach = function foreach (a, callback, thisForCallback) {
   }
 }
 
-export function map (a, callback, thisForCallback) {
+module.exports.map = function map (a, callback, thisForCallback) {
   var i
   var mapedArr = []
   for (i = 0; i < a.length; i++) {
@@ -15,7 +15,7 @@ export function map (a, callback, thisForCallback) {
   return mapedArr
 }
 
-export function take (a, count) {
+module.exports.take = function take (a, count) {
   /* var mapedArr = [];
         var takeCount = count>a.length ? a.length : count
         for (var i = 0; i < takeCount; i++) {
@@ -26,7 +26,7 @@ export function take (a, count) {
   return a.slice(0, count)
 }
 
-export function skip (a, count) {
+module.exports.skip = function skip (a, count) {
   /* var mapedArr = []
   for (var i = count; i < a.length; i++) {
     mapedArr.push(a[i])
@@ -34,7 +34,7 @@ export function skip (a, count) {
   return a.slice(count)
 }
 
-export function reduce (a, callback, initialValue) {
+module.exports.reduce = function reduce (a, callback, initialValue) {
   var accumulate = initialValue || 0
   var length = a.length
   for (var i = 0; i < length; i++) {
@@ -43,7 +43,7 @@ export function reduce (a, callback, initialValue) {
   return accumulate
 }
 
-export function filter (a, callback, thisForCallback) {
+module.exports.filter = function filter (a, callback, thisForCallback) {
   var i
   var filteredArr = []
   for (i = 0; i < a.length; i++) {

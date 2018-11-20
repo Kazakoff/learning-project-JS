@@ -1,5 +1,6 @@
 var arrayLib = (function () {
   var arr = [];
+
   function chain (initArray) {
     this.arr = initArray.slice(0);
     return this;
@@ -22,10 +23,6 @@ var arrayLib = (function () {
   }
 
   function take (a, count) {
-    if (arguments.length < 2) {
-      arr.slice(0, count);
-      return this;
-    }
     return a.slice(0, count);
   }
 
@@ -56,6 +53,6 @@ var arrayLib = (function () {
     reduce: reduce,
     map: map,
     take: take,
-    skip: skip
-  };
+    skip: skip,
+    chain: chain };
 })();

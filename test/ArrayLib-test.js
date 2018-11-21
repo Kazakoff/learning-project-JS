@@ -1,8 +1,5 @@
-/* eslint-disable no-return-assign */
-/* eslint-disable no-undef */
-/* eslint-disable node/no-deprecated-api */
-const assert = require('assert')
-const arrayFunctions = require('../modules/ArrayFunction')
+const assert = require('assert');
+const arrayFunctions = require('../modules/ArrayLib');
 
 describe('Array functions library', function () {
   const arr = [1, 2, 3]

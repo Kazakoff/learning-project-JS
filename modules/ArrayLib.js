@@ -1,21 +1,27 @@
-var arrayLib = (function () {
-  var arr = [];
-  return {
-    chain: function chain (initArray) {
-    this.arr = initArray.slice(0);
-    return this { 
-      
+(function () {
+  function chain (initArray) {
+    var arr = initArray.slice(0);
+    return {
+      take: function (count) {
+        arr = take(arr, count);
+        return this;
+      },
+      skip: function (count) {
+        arr = skip(arr, count);
+        return this;
+      },
+      value: function () { return arr; }
     };
   }
 
-  foreach: function foreach (a, callback, thisForCallback) {
+  function foreach (a, callback, thisForCallback) {
     var i;
     var length = a.length;
     for (i = 0; i < length; i++) {
       callback.call(thisForCallback, a[i], i, a);
     }
   }
-  map: function map (a, callback, thisForCallback) {
+  function map (a, callback, thisForCallback) {
     var i;
     var mapedArr = [];
     for (i = 0; i < a.length; i++) {
@@ -24,15 +30,15 @@ var arrayLib = (function () {
     return mapedArr;
   }
 
-  take: function take (a, count) {
+  function take (a, count) {
     return a.slice(0, count);
   }
 
-  skip: function skip (a, count) {
+  function skip (a, count) {
     return a.slice(count);
   }
 
-  reduce: function reduce (a, callback, initialValue) {
+  function reduce (a, callback, initialValue) {
     var accumulate = initialValue || 0;
     var length = a.length;
     for (var i = 0; i < length; i++) {
@@ -41,13 +47,21 @@ var arrayLib = (function () {
     return accumulate;
   }
 
-  filter: function filter (a, callback, thisForCallback) {
-    var i;
+  function filter (a, callback, thisForCallback) {
     var filteredArr = [];
-    for (i = 0; i < a.length; i++) {
+    for (let i = 0; i < a.length; i++) {
       if (callback.call(thisForCallback, a[i], i, a)) filteredArr.push(a[i]);
     }
     return filteredArr;
   }
-};
+
+  return {
+    chain: chain,
+    foreach: foreach,
+    map: map,
+    take: take,
+    skip: skip,
+    reduce: reduce,
+    filter: filter
+  };
 })();

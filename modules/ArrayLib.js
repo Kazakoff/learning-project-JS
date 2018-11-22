@@ -1,4 +1,4 @@
-(function () {
+var arrayLib = function () {
   function chain (initArray) {
     var arr = initArray.slice(0);
     return {
@@ -21,6 +21,7 @@
       callback.call(thisForCallback, a[i], i, a);
     }
   }
+
   function map (a, callback, thisForCallback) {
     var i;
     var mapedArr = [];
@@ -64,4 +65,4 @@
     reduce: reduce,
     filter: filter
   };
-})();
+};

@@ -3,9 +3,10 @@
 
 // const arr = [1, 2, 3];
 
+ var arrayLb = require('./modules/ProbeLib').exportsMy1;
 
-var arrayLib = require('./modules/ProbeLib');
+// require('./modules/ProbeLib');
 
-console.log(arrayLib.chain([1, 2, 3, 4, 5]).take(2).value());
+// console.log(exports.arrayLib.chainLib([1, 2, 3, 4, 5]).takeLib(2).value());
+console.log(exports.arrayLib.chainLib([1, 2, 3, 4, 5]));
 // console.log(arrayLib1.foreach([1, 2, 3, 4, 5], function (ai) { console.log(ai); }));
-

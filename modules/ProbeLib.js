@@ -1,4 +1,4 @@
-var arrayLib = (function () {
+(function (exports) {
   function chain (initArray) {
     var arr = initArray.slice(0);
     return {
@@ -12,9 +12,9 @@ var arrayLib = (function () {
   function take (a, count) {
     return a.slice(0, count);
   }
-  var t = 5;
+  exports.chainLib = chain;
   return {
     chain: chain,
     take: take
   };
-})();
+}((this.arrayLib = this.arrayLib || {})));

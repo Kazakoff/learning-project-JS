@@ -12,7 +12,6 @@ var arrayLib = (function () {
   function take (a, count) {
     return a.slice(0, count);
   }
-  var t = 5;
   return {
     chain: chain,
     take: take

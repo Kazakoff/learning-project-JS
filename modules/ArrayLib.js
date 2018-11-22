@@ -1,4 +1,4 @@
-var arrayLib = function () {
+var arrayLib = (function () {
   function chain (initArray) {
     var arr = initArray.slice(0);
     return {
@@ -65,4 +65,4 @@ var arrayLib = function () {
     reduce: reduce,
     filter: filter
   };
-};
+}());

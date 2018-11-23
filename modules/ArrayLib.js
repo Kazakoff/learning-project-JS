@@ -1,14 +1,16 @@
 module.exports = (function () {
   function chain (initArray) {
     var arr = initArray.slice(0);
+    function getPart (f, count) {
+      arr = f(arr, count);
+      return this;
+    }
     return {
       take: function (count) {
-        arr = take(arr, count);
-        return this;
+        return getPart.call(this, take, count);
       },
       skip: function (count) {
-        arr = skip(arr, count);
-        return this;
+        return getPart.call(this, skip, count);
       },
       value: function () { return arr; }
 
@@ -67,4 +69,3 @@ module.exports = (function () {
     filter: filter
   };
 })();
-

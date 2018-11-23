@@ -1,4 +1,4 @@
-var arrayLib = function () {
+module.exports = (function () {
   function chain (initArray) {
     var arr = initArray.slice(0);
     return {
@@ -11,6 +11,7 @@ var arrayLib = function () {
         return this;
       },
       value: function () { return arr; }
+
     };
   }
 
@@ -65,4 +66,4 @@ var arrayLib = function () {
     reduce: reduce,
     filter: filter
   };
-};
+})();

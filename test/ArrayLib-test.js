@@ -1,7 +1,7 @@
 /* eslint-disable node/no-deprecated-api */
 /* eslint-disable no-undef */
 const assert = require('assert');
-const arrayFunctions = require('../modules/ArrayLib').arrayLib();
+const arrayFunctions = require('../modules/ArrayLib');
 const arr = [1, 2, 3];
 
 describe('ArrayLib', function () {
@@ -24,7 +24,7 @@ describe('ArrayLib', function () {
   });
 
   it('skip', () => {
-    assert.deepEqual(arrayFunctions.skip(arr, 2), [3, 4]);
+    assert.deepEqual(arrayFunctions.skip(arr, 2), [3]);
   });
 
   it('reduce', () => {

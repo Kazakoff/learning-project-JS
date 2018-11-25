@@ -5,6 +5,27 @@ const arrayFunctions = require('../modules/ArrayLib');
 const arr = [1, 2, 3];
 
 describe('ArrayLib', function () {
+  var arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var arr2 = [5, 6, 7, 8, 9];
+  it('cash sum [1, 2, 3, 4, 5, 6, 7, 8, 9] 0,3', () => {
+    assert.deepEqual(arrayFunctions.sum(arr1, 0, 3), 10);
+  });
+
+  it('cash sum  [1, 2, 3, 4, 5, 6, 7, 8, 9]1,3', () => {
+    assert.deepEqual(arrayFunctions.sum(arr1, 1, 3), 9);
+  });
+
+  it('cash sum [1, 2, 3, 4, 5, 6, 7, 8, 9] cash 1,3', () => {
+    assert.deepEqual(arrayFunctions.sum(arr1, 1, 3), 9);
+  });
+  it('cash sum [5, 6, 7, 8, 9] 1,3', () => {
+    assert.deepEqual(arrayFunctions.sum(arr2, 1, 3), 21);
+  });
+
+  it('cash sum  [5, 6, 7, 8, 9] cash 1,3', () => {
+    assert.deepEqual(arrayFunctions.sum(arr2, 1, 3), 21);
+  });
+
   it('[1,2,3,4,5] -> [2]', () => {
     assert.deepEqual(arrayFunctions.chain([1, 2, 3, 4, 5]).take(2).skip(1).value(), [2]);
   });
@@ -36,4 +57,3 @@ describe('ArrayLib', function () {
     assert.deepEqual(arrayFunctions.filter(arr, function (arrItm, i) { return arrItm % 2 === 0; }), [2, 4, 6]);
   });
 });
-

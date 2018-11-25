@@ -17,19 +17,30 @@ module.exports = (function () {
     };
   }
 
+  function sum (array, start, end) {
+    let cashId = start + ',' + end;
+    if (array.cash === undefined) array.cash = {};
+    if (cashId in array.cash) {
+      return array.cash[cashId];
+    } else {
+      let s = 0;
+      for (let i = start; i <= end; i++) {
+        s += array[i];
+      }
+      array.cash[cashId] = s;
+      return s;
+    }
+  }
   function foreach (a, callback, thisForCallback) {
-    var i;
-    var length = a.length;
-    for (i = 0; i < length; i++) {
+    for (let i = 0; i < a.length; i++) {
       callback.call(thisForCallback, a[i], i, a);
     }
   }
 
-  function map (a, callback, thisForCallback) {
-    var i;
+  function map (a, callback) {
     var mapedArr = [];
-    for (i = 0; i < a.length; i++) {
-      mapedArr.push(callback.call(thisForCallback, a[i], i, a));
+    for (let i = 0; i < a.length; i++) {
+      mapedArr.push(callback(a[i], i, a));
     }
     return mapedArr;
   }
@@ -44,22 +55,22 @@ module.exports = (function () {
 
   function reduce (a, callback, initialValue) {
     var accumulate = initialValue || 0;
-    var length = a.length;
-    for (var i = 0; i < length; i++) {
+    for (var i = 0; i < a.length; i++) {
       accumulate = callback(accumulate, a[i], i, a);
     }
     return accumulate;
   }
 
-  function filter (a, callback, thisForCallback) {
+  function filter (a, callback) {
     var filteredArr = [];
     for (let i = 0; i < a.length; i++) {
-      if (callback.call(thisForCallback, a[i], i, a)) filteredArr.push(a[i]);
+      if (callback(a[i], i, a)) filteredArr.push(a[i]);
     }
     return filteredArr;
   }
 
   return {
+    sum: sum,
     chain: chain,
     foreach: foreach,
     map: map,

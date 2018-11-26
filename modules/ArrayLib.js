@@ -18,16 +18,16 @@ module.exports = (function () {
   }
 
   function sum (array, start, end) {
-    let cashId = start + ',' + end;
-    if (array.cash === undefined) array.cash = {};
-    if (cashId in array.cash) {
-      return array.cash[cashId];
+    var cache = {};
+    let cacheId = array + '-' + start + ',' + end;
+    if (cacheId in cache) {
+      return cache[cacheId];
     } else {
       let s = 0;
       for (let i = start; i <= end; i++) {
         s += array[i];
       }
-      array.cash[cashId] = s;
+      cache[cacheId] = s;
       return s;
     }
   }

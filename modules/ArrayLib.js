@@ -1,19 +1,32 @@
 module.exports = (function () {
   function chain (initArray) {
     var arr = initArray.slice(0);
-    function getPart (f, count) {
-      arr = f(arr, count);
+    function libCall (f) {
+      var libFun = arguments[0];
+      arguments[0] = arr;
+      arr = libFun.apply(this, arguments);
       return this;
     }
     return {
       take: function (count) {
-        return getPart.call(this, take, count);
+        return libCall.call(this, take, count);
       },
       skip: function (count) {
-        return getPart.call(this, skip, count);
+        return libCall.call(this, skip, count);
       },
-      value: function () { return arr; }
-
+      foreach: function (callback) {
+        return libCall.call(this, skip, callback);
+      },
+      map: function (callback) {
+        return libCall.call(this, map, callback);
+      },
+      reduce: function (callback, initialValue) {
+        return libCall.call(this, reduce, callback, initialValue);
+      },
+      filter: function (callback) {
+        return libCall.call(this, reduce, callback);
+      },
+      value: function () { return arr; }  
     };
   }
 
@@ -31,9 +44,9 @@ module.exports = (function () {
       return s;
     }
   }
-  function foreach (a, callback, thisForCallback) {
+  function foreach (a, callback) {
     for (let i = 0; i < a.length; i++) {
-      callback.call(thisForCallback, a[i], i, a);
+      callback(a[i], i, a);
     }
   }
 

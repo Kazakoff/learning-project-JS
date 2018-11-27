@@ -26,24 +26,27 @@ module.exports = (function () {
       filter: function (callback) {
         return libCall.call(this, reduce, callback);
       },
-      value: function () { return arr; }  
+      value: function () { return arr; }
     };
   }
 
-  function sum (array, start, end) {
+  var sum = (() => {
     var cache = {};
-    let cacheId = array + '-' + start + ',' + end;
-    if (cacheId in cache) {
-      return cache[cacheId];
-    } else {
-      let s = 0;
-      for (let i = start; i <= end; i++) {
-        s += array[i];
+    return function (array, start, end) {
+      let cacheId = array + '-' + start + ',' + end;
+      if (cacheId in cache) {
+        return cache[cacheId];
+      } else {
+        let s = 0;
+        for (let i = start; i <= end; i++) {
+          s += array[i];
+        }
+        cache[cacheId] = s;
+        return s;
       }
-      cache[cacheId] = s;
-      return s;
-    }
-  }
+    };
+  })();
+
   function foreach (a, callback) {
     for (let i = 0; i < a.length; i++) {
       callback(a[i], i, a);

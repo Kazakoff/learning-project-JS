@@ -2,31 +2,20 @@ module.exports = (function () {
   function chain (initArray) {
     var arr = initArray.slice(0);
     function libCall (f) {
-      var libFun = arguments[0];
-      arguments[0] = arr;
-      arr = libFun.apply(this, arguments);
-      return this;
+      return function () {
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift(arr);
+        arr = f.apply(this, args);
+        return this;
+      };
     }
     return {
-      take: function (count) {
-        return libCall.call(this, take, count);
-      },
-      skip: function (count) {
-        return libCall.call(this, skip, count);
-      },
-      foreach: function (callback) {
-        return libCall.call(this, skip, callback);
-      },
-      map: function (callback) {
-        return libCall.call(this, map, callback);
-      },
-      reduce: function (callback, initialValue) {
-        return libCall.call(this, reduce, callback, initialValue);
-      },
-      filter: function (callback) {
-        return libCall.call(this, reduce, callback);
-      },
-      value: function () { return arr; }
+      take: libCall(take),
+      skip: libCall(skip),
+      foreach: libCall(foreach),
+      map: libCall(map),
+      reduce: libCall(reduce),
+      value: function () { return arr; },
     };
   }
 

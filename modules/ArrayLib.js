@@ -3,9 +3,8 @@ module.exports = (function () {
     var arr = initArray.slice(0);
     function libCall (f) {
       return function () {
-        var args = Array.prototype.slice.call(arguments);
-        args.unshift(arr);
-        arr = f.apply(this, args);
+        var fb = f.bind(this, arr);
+        arr = fb.apply(this, arguments);
         return this;
       };
     }

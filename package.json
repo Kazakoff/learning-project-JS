@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/jasmine-node spec"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
+    "jasmine-node": "^1.16.2",
     "semistandard": "^13.0.1"
   }
 }

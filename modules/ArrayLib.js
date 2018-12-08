@@ -14,7 +14,6 @@ module.exports = (function () {
       skip: libCall(skip),
       foreach: libCall(foreach),
       map: libCall(map),
-      reduce: libCall(reduce),
       value: function () { return arr; },
     };
   }

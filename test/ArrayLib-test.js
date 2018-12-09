@@ -1,7 +1,7 @@
 /* eslint-disable node/no-deprecated-api */
 /* eslint-disable no-undef */
 const assert = require('assert');
-const arrayFunctions = require('../modules/ArrayLib');
+const arrayFunctions = require('../modules/ArrayLibES6');
 const arr = [1, 2, 3];
 
 describe('ArrayLib', function () {

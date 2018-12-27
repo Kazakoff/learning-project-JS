@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "./node_modules/.bin/jasmine-node spec",
+    "build": "babel modules -d modules-dist --peresets es2015"
+
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,9 @@
   },
   "homepage": "https://github.com/Kazakoff/learning-project-JS#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",

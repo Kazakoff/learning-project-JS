@@ -1,7 +1,7 @@
 
 const assert = require('assert');
 require('jasmine-node');
-const arrayFunctions = require('../modules/ArrayLib');
+const arrayFunctions = require('../modules-dist/ArrayLib');
 const arr = [1, 2, 3];
 
 describe('ArrayLib', function () {

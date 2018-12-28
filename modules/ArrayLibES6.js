@@ -1,24 +1,24 @@
-class chain {
+class Chain {
   constructor (initArray) {
     this.arr = initArray.slice(0);
   }
-  libCall (f) {
+  curringFunc (func) {
     return function () {
-      var fb = f.bind(this, this.arr);
+      let fb = func.bind(this, this.arr);
       this.arr = fb.apply(this, arguments);
       return this;
     };
   }
-  take () { this.libCall(take); }
-  skip () { this.libCall(skip); }
-  foreach () { this.libCall(foreach); }
-  map () { this.libCall(map); }
+  take () { this.curringFunc(take); }
+  skip () { this.curringFunc(skip); }
+  foreach () { this.curringFunc(foreach); }
+  map () { this.curringFunc(map); }
   value () {
     return this.arr;
   }
 }
 function sum (array, start, end) {
-  var cache = {};
+  let cache = {};
   let cacheId = array + '-' + start + ',' + end;
   if (cacheId in cache) {
     return cache[cacheId];
@@ -39,7 +39,7 @@ function foreach (a, callback) {
 }
 
 function map (a, callback) {
-  var mapedArr = [];
+  let mapedArr = [];
   for (let i = 0; i < a.length; i++) {
     mapedArr.push(callback(a[i], i, a));
   }
@@ -56,7 +56,7 @@ function skip (a, count) {
 
 function reduce (a, callback, initialValue) {
   var accumulate = initialValue || 0;
-  for (var i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     accumulate = callback(accumulate, a[i], i, a);
   }
   return accumulate;
@@ -69,8 +69,7 @@ function filter (a, callback) {
   }
   return filteredArr;
 }
-
-module.exports.chain = chain;
+module.exports.Chain = Chain;
 module.exports.filter = filter;
 module.exports.reduce = reduce;
 module.exports.skip = skip;

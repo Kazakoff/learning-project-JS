@@ -7,9 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec",
-    "build": "babel modules -d modules-dist --peresets es2015"
-
+    "start": "babel modules -d modules-dist --peresets es2015 -w",
+    "jtest": "./node_modules/.bin/jasmine-node spec",
+    "build": "babel modules -d modules-dist --peresets es2015",
+    "test": "npm-run-all build jtest"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
     "jasmine-node": "^1.16.2",

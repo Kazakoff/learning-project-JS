@@ -7,7 +7,7 @@ class Chain {
     this.map = this.curringFunc(Chain.map);
   }
   curringFunc(func) {
-    return function () {
+    return () => {
       let fb = func.bind(this, this.arr);
       this.arr = fb.apply(this, arguments);
       return this;

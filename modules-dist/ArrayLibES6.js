@@ -1,6 +1,10 @@
 class Chain {
   constructor(initArray) {
     this.arr = initArray.slice(0);
+    this.take = this.curringFunc(take);
+    this.skip = this.curringFunc(skip);
+    this.foreach = this.curringFunc(foreach);
+    this.map = this.curringFunc(map);
   }
   curringFunc(func) {
     return function () {
@@ -8,18 +12,6 @@ class Chain {
       this.arr = fb.apply(this, arguments);
       return this;
     };
-  }
-  take() {
-    this.curringFunc(take);
-  }
-  skip() {
-    this.curringFunc(skip);
-  }
-  foreach() {
-    this.curringFunc(foreach);
-  }
-  map() {
-    this.curringFunc(map);
   }
   value() {
     return this.arr;
